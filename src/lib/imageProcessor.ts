@@ -115,6 +115,65 @@ const canvasToWebpBlob = (canvas: HTMLCanvasElement, quality: number): Promise<B
   });
 };
 
+// High-quality stepped downscaling to prevent aliasing and blurriness
+const drawScaledImage = (
+  ctx: CanvasRenderingContext2D,
+  img: HTMLImageElement,
+  targetWidth: number,
+  targetHeight: number
+) => {
+  let currentWidth = img.naturalWidth;
+  let currentHeight = img.naturalHeight;
+
+  // Create an offscreen canvas for intermediate steps
+  const offscreenCanvas = document.createElement('canvas');
+  const offscreenCtx = offscreenCanvas.getContext('2d');
+  if (!offscreenCtx) {
+    // Fallback to direct draw if canvas creation fails
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+    return;
+  }
+
+  offscreenCanvas.width = currentWidth;
+  offscreenCanvas.height = currentHeight;
+  offscreenCtx.imageSmoothingEnabled = true;
+  offscreenCtx.imageSmoothingQuality = 'high';
+  offscreenCtx.drawImage(img, 0, 0);
+
+  // Step down by max 50% width/height per iteration to maintain crispness and avoid aliasing
+  while (currentWidth > targetWidth * 2 || currentHeight > targetHeight * 2) {
+    const nextWidth = Math.max(targetWidth, Math.round(currentWidth / 2));
+    const nextHeight = Math.max(targetHeight, Math.round(currentHeight / 2));
+
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = nextWidth;
+    tempCanvas.height = nextHeight;
+    const tempCtx = tempCanvas.getContext('2d');
+    if (!tempCtx) break;
+
+    tempCtx.imageSmoothingEnabled = true;
+    tempCtx.imageSmoothingQuality = 'high';
+    tempCtx.drawImage(offscreenCanvas, 0, 0, currentWidth, currentHeight, 0, 0, nextWidth, nextHeight);
+
+    // Resize offscreen canvas for the next iteration
+    offscreenCanvas.width = nextWidth;
+    offscreenCanvas.height = nextHeight;
+    offscreenCtx.imageSmoothingEnabled = true;
+    offscreenCtx.imageSmoothingQuality = 'high';
+    offscreenCtx.drawImage(tempCanvas, 0, 0);
+
+    currentWidth = nextWidth;
+    currentHeight = nextHeight;
+  }
+
+  // Draw the final step onto the destination canvas context
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(offscreenCanvas, 0, 0, currentWidth, currentHeight, 0, 0, targetWidth, targetHeight);
+};
+
 export interface ProcessProgress {
   status: ProcessedFile['status'];
   progress: number;
@@ -202,7 +261,14 @@ export const processSingleImage = async (
     canvas.width = finalWidth;
     canvas.height = finalHeight;
     ctx.clearRect(0, 0, finalWidth, finalHeight);
-    ctx.drawImage(img, 0, 0, finalWidth, finalHeight);
+
+    if (scale === 1.0) {
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(img, 0, 0, finalWidth, finalHeight);
+    } else {
+      drawScaledImage(ctx, img, finalWidth, finalHeight);
+    }
 
     // Try reducing qualities from 90 to minQuality by steps of 5
     for (quality = 90; quality >= settings.minQuality; quality -= 5) {
