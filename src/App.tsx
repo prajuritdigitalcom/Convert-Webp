@@ -186,20 +186,20 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans text-slate-700 antialiased" id="app-root-layout">
       {/* Upper Accent Line */}
-      <div className="h-1.5 w-full bg-gradient-to-r from-indigo-500 via-indigo-600 to-indigo-700" id="top-accent-line"></div>
+      <div className="h-1.5 w-full bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700" id="top-accent-line"></div>
 
       {/* Main Container */}
       <main className="flex-1 max-w-5xl w-full mx-auto px-4 py-8 md:py-12" id="main-content-stage">
         
         {/* Header Hero Section */}
         <header className="text-center mb-8 md:mb-12 space-y-3" id="main-heading-header">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-semibold" id="brand-badge">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-50 border border-primary-100 text-primary-700 text-xs font-semibold" id="brand-badge">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Versi Pro &bull; Client-Side Compressor</span>
           </div>
 
           <h1 className="font-display font-extrabold text-3xl md:text-5xl text-slate-900 tracking-tight leading-none" id="hero-main-title">
-            Convert Semua Gambar Menjadi <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-indigo-700">WebP Maksimal 100 KB</span>
+            Convert Semua Gambar Menjadi <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-700">WebP Maksimal 100 KB</span>
           </h1>
 
           <p className="font-sans text-slate-500 max-w-2xl mx-auto text-sm md:text-base leading-relaxed" id="hero-sub-description">
@@ -262,21 +262,21 @@ export default function App() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6" id="faq-grid">
             <div className="bg-white p-5 rounded-2xl border border-slate-100/80 shadow-xs space-y-2">
-              <span className="text-xs font-bold text-indigo-600 font-mono">LANGKAH 01</span>
+              <span className="text-xs font-bold text-primary-600 font-mono">LANGKAH 01</span>
               <h4 className="font-semibold text-slate-800 text-sm">Konversi Lossless ke WebP</h4>
               <p className="text-xs text-slate-500 leading-normal">
                 Sistem mendeteksi ekstensi gambar mentah, memuat piksel ke kanvas memori, lalu merender ulang gambar langsung ke format WebP modern dengan kualitas optimal (Kualitas 90).
               </p>
             </div>
             <div className="bg-white p-5 rounded-2xl border border-slate-100/80 shadow-xs space-y-2">
-              <span className="text-xs font-bold text-indigo-600 font-mono">LANGKAH 02</span>
+              <span className="text-xs font-bold text-primary-600 font-mono">LANGKAH 02</span>
               <h4 className="font-semibold text-slate-800 text-sm">Kompresi Bertingkat Otomatis</h4>
               <p className="text-xs text-slate-500 leading-normal">
                 Jika ukuran melampaui batas target ({settings.maxOutputSizeKb} KB), sistem secara iteratif menurunkan rasio kompresi 5 poin hingga menyentuh batas minimum kualitas ({settings.minQuality}%).
               </p>
             </div>
             <div className="bg-white p-5 rounded-2xl border border-slate-100/80 shadow-xs space-y-2">
-              <span className="text-xs font-bold text-indigo-600 font-mono">LANGKAH 03</span>
+              <span className="text-xs font-bold text-primary-600 font-mono">LANGKAH 03</span>
               <h4 className="font-semibold text-slate-800 text-sm">Smart Resizing Engine</h4>
               <p className="text-xs text-slate-500 leading-normal">
                 Jika file masih &gt; {settings.maxOutputSizeKb} KB pada kualitas {settings.minQuality}%, resolusi gambar diturunkan bertahap (skala 10%) dengan menjaga rasio lebar-tinggi agar tetap tajam dan di bawah 100 KB.
@@ -303,7 +303,7 @@ export default function App() {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setShowPrivacyModal(true)}
-              className="hover:text-indigo-600 underline cursor-pointer font-medium"
+              className="hover:text-primary-600 underline cursor-pointer font-medium"
               id="privacy-policy-trigger"
             >
               Kebijakan Privasi &amp; Data Keamanan
@@ -367,7 +367,7 @@ export default function App() {
                 <div className="pt-4 border-t border-slate-100 flex justify-end">
                   <button
                     onClick={() => setShowPrivacyModal(false)}
-                    className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-xl transition-all shadow-sm shadow-indigo-100"
+                    className="px-5 py-2.5 bg-primary-600 hover:bg-primary-500 text-white text-xs font-semibold rounded-xl transition-all shadow-sm shadow-primary-100"
                     id="accept-privacy-btn"
                   >
                     Saya Mengerti &amp; Setuju

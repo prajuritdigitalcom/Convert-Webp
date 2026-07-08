@@ -65,7 +65,7 @@ export default function HistoryList({
       {/* Control Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-100 rounded-2xl p-4 shadow-2xs">
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-xl bg-indigo-50 text-indigo-600">
+          <div className="p-2 rounded-xl bg-primary-50 text-primary-600">
             <Layers className="w-5 h-5" />
           </div>
           <div>
@@ -84,7 +84,7 @@ export default function HistoryList({
             <button
               onClick={handleDownloadAllZip}
               disabled={isZipping}
-              className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-2 text-xs md:text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-500 rounded-xl transition-all shadow-sm shadow-indigo-100 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-2 text-xs md:text-sm font-semibold text-white bg-primary-600 hover:bg-primary-500 rounded-xl transition-all shadow-sm shadow-primary-100 disabled:opacity-50 disabled:cursor-not-allowed"
               id="download-all-zip-btn"
             >
               {isZipping ? (

@@ -54,7 +54,7 @@ export default function ResultCard({ file, onDelete }: ResultCardProps) {
         isError 
           ? 'border-rose-100 hover:border-rose-200 bg-rose-50/10' 
           : isSuccess 
-            ? 'border-slate-100 hover:border-indigo-100' 
+            ? 'border-slate-100 hover:border-primary-100' 
             : 'border-slate-100 animate-pulse'
       }`}
       id={`result-card-${file.id}`}
@@ -108,7 +108,7 @@ export default function ResultCard({ file, onDelete }: ResultCardProps) {
               {file.name}
             </h4>
             {isSuccess && (
-              <p className="text-xs text-indigo-500 font-mono font-medium truncate">
+              <p className="text-xs text-primary-500 font-mono font-medium truncate">
                 &rarr; {file.outputName}
               </p>
             )}
@@ -128,7 +128,7 @@ export default function ResultCard({ file, onDelete }: ResultCardProps) {
                 <span className="text-[10px] text-slate-400 font-medium uppercase">Ukuran Hasil</span>
                 <span className="text-sm font-bold text-slate-800 font-mono flex items-center gap-1.5">
                   {formatSize(file.compressedSize || 0)}
-                  <span className="text-[10px] font-mono bg-indigo-50 text-indigo-600 px-1 py-0.2 rounded-sm">
+                  <span className="text-[10px] font-mono bg-primary-50 text-primary-600 px-1 py-0.2 rounded-sm">
                     WebP
                   </span>
                 </span>
@@ -151,7 +151,7 @@ export default function ResultCard({ file, onDelete }: ResultCardProps) {
               </div>
               <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
                 <div 
-                  className="bg-indigo-500 h-full rounded-full transition-all duration-300"
+                  className="bg-primary-500 h-full rounded-full transition-all duration-300"
                   style={{ width: `${file.progress}%` }}
                 ></div>
               </div>
@@ -171,7 +171,7 @@ export default function ResultCard({ file, onDelete }: ResultCardProps) {
             <>
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-indigo-600 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition-colors"
+                className="flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-primary-600 bg-primary-50 hover:bg-primary-100 rounded-lg transition-colors"
                 title="Bandingkan visual sebelum/sesudah"
               >
                 {isExpanded ? (
@@ -260,18 +260,18 @@ export default function ResultCard({ file, onDelete }: ResultCardProps) {
                     className="w-full h-full object-contain pointer-events-none"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute top-3 right-3 bg-indigo-600/90 backdrop-blur-xs text-white text-[10px] font-bold font-mono px-2.5 py-1 rounded-md">
+                  <div className="absolute top-3 right-3 bg-primary-600/90 backdrop-blur-xs text-white text-[10px] font-bold font-mono px-2.5 py-1 rounded-md">
                     SESUDAH ({file.compressedWidth}x{file.compressedHeight})
                   </div>
                 </div>
 
                 {/* Sliding separator bar */}
                 <div 
-                  className="absolute top-0 bottom-0 w-1 bg-white hover:bg-indigo-300 transition-colors shadow-lg cursor-ew-resize flex items-center justify-center"
+                  className="absolute top-0 bottom-0 w-1 bg-white hover:bg-primary-300 transition-colors shadow-lg cursor-ew-resize flex items-center justify-center"
                   style={{ left: `${sliderPosition}%` }}
                 >
                   {/* Handle buttons */}
-                  <div className="w-8 h-8 bg-white text-indigo-600 border-2 border-indigo-200 rounded-full flex items-center justify-center shadow-md shrink-0">
+                  <div className="w-8 h-8 bg-white text-primary-600 border-2 border-primary-200 rounded-full flex items-center justify-center shadow-md shrink-0">
                     <span className="font-bold text-xs select-none">&harr;</span>
                   </div>
                 </div>
@@ -285,7 +285,7 @@ export default function ResultCard({ file, onDelete }: ResultCardProps) {
                 </div>
                 <div>
                   <span className="text-[10px] text-slate-400 block uppercase font-semibold">Resolusi Akhir</span>
-                  <span className={`text-xs font-semibold font-mono ${file.resizedRatio !== 1 ? 'text-indigo-600' : 'text-slate-700'}`}>
+                  <span className={`text-xs font-semibold font-mono ${file.resizedRatio !== 1 ? 'text-primary-600' : 'text-slate-700'}`}>
                     {file.compressedWidth} x {file.compressedHeight} piksel {file.resizedRatio !== 1 && `(${Math.round((file.resizedRatio || 1) * 100)}%)`}
                   </span>
                 </div>

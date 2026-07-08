@@ -129,15 +129,15 @@ export default function UploadArea({
         whileTap={{ scale: 0.995 }}
         className={`relative w-full border-2 border-dashed rounded-3xl p-8 md:p-12 text-center cursor-pointer transition-all ${
           isDragActive
-            ? 'border-indigo-500 bg-indigo-50/40 shadow-inner'
-            : 'border-slate-200 bg-white hover:border-indigo-400 hover:shadow-xs'
+            ? 'border-primary-500 bg-primary-50/40 shadow-inner'
+            : 'border-slate-200 bg-white hover:border-primary-400 hover:shadow-xs'
         }`}
         id="drag-and-drop-container"
       >
         <div className="flex flex-col items-center justify-center max-w-xl mx-auto space-y-4">
           {/* Animated Icon Circle */}
           <div className={`p-4 rounded-full transition-colors ${
-            isDragActive ? 'bg-indigo-100 text-indigo-600' : 'bg-slate-50 text-slate-400 group-hover:text-indigo-500'
+            isDragActive ? 'bg-primary-100 text-primary-600' : 'bg-slate-50 text-slate-400 group-hover:text-primary-500'
           }`}>
             <Upload className={`w-8 h-8 ${isDragActive ? 'animate-bounce' : ''}`} />
           </div>
@@ -147,7 +147,7 @@ export default function UploadArea({
               Tarik &amp; Lepaskan Gambar ke Sini
             </h3>
             <p className="text-xs md:text-sm text-slate-500">
-              atau <span className="text-indigo-600 font-semibold underline decoration-2 decoration-indigo-200">pilih berkas gambar</span> dari perangkat Anda
+              atau <span className="text-primary-600 font-semibold underline decoration-2 decoration-primary-200">pilih berkas gambar</span> dari perangkat Anda
             </p>
           </div>
 

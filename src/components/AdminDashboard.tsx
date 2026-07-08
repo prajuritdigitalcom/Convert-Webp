@@ -68,7 +68,7 @@ export default function AdminDashboard({
         id="dashboard-header-trigger"
       >
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-xl bg-indigo-50 text-indigo-600">
+          <div className="p-2 rounded-xl bg-primary-50 text-primary-600">
             <Sliders className="w-5 h-5" id="dashboard-icon" />
           </div>
           <div>
@@ -81,7 +81,7 @@ export default function AdminDashboard({
           </div>
         </div>
         <button 
-          className="px-3 py-1.5 text-xs font-semibold text-indigo-600 bg-indigo-50/60 rounded-lg hover:bg-indigo-100 transition-colors"
+          className="px-3 py-1.5 text-xs font-semibold text-primary-600 bg-primary-50/60 rounded-lg hover:bg-primary-100 transition-colors"
           id="toggle-dashboard-btn"
         >
           {isOpen ? 'Sembunyikan' : 'Buka Dashboard'}
@@ -97,7 +97,7 @@ export default function AdminDashboard({
               onClick={() => setActiveTab('stats')}
               className={`flex items-center gap-2 px-4 py-2 text-xs md:text-sm font-semibold rounded-xl transition-all ${
                 activeTab === 'stats'
-                  ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-100'
+                  ? 'bg-primary-600 text-white shadow-sm shadow-primary-100'
                   : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-100'
               }`}
               id="tab-stats-btn"
@@ -109,7 +109,7 @@ export default function AdminDashboard({
               onClick={() => setActiveTab('settings')}
               className={`flex items-center gap-2 px-4 py-2 text-xs md:text-sm font-semibold rounded-xl transition-all ${
                 activeTab === 'settings'
-                  ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-100'
+                  ? 'bg-primary-600 text-white shadow-sm shadow-primary-100'
                   : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-100'
               }`}
               id="tab-settings-btn"
@@ -131,7 +131,7 @@ export default function AdminDashboard({
                     <span className="text-xs font-medium text-emerald-500">file</span>
                   </div>
                   <div className="w-full bg-slate-100 h-1.5 rounded-full mt-3 overflow-hidden">
-                    <div className="bg-indigo-500 h-full rounded-full" style={{ width: stats.totalProcessed > 0 ? '100%' : '0%' }}></div>
+                    <div className="bg-primary-500 h-full rounded-full" style={{ width: stats.totalProcessed > 0 ? '100%' : '0%' }}></div>
                   </div>
                 </div>
 
@@ -176,19 +176,19 @@ export default function AdminDashboard({
                 </div>
               </div>
 
-              <div className="flex items-center justify-between bg-indigo-50/50 rounded-xl p-4 border border-indigo-50/80">
+              <div className="flex items-center justify-between bg-primary-50/50 rounded-xl p-4 border border-primary-50/80">
                 <div className="flex items-start gap-2.5">
-                  <ShieldAlert className="w-5 h-5 text-indigo-600 mt-0.5 shrink-0" />
+                  <ShieldAlert className="w-5 h-5 text-primary-600 mt-0.5 shrink-0" />
                   <div>
-                    <span className="text-xs font-semibold text-indigo-800 block">Informasi Penyimpanan Efemeral</span>
-                    <span className="text-[11px] text-indigo-600 max-w-2xl block leading-relaxed">
+                    <span className="text-xs font-semibold text-primary-800 block">Informasi Penyimpanan Efemeral</span>
+                    <span className="text-[11px] text-primary-600 max-w-2xl block leading-relaxed">
                       Sesuai dengan standard privasi WebP Smart Compressor, seluruh pemrosesan dilakukan sepenuhnya di dalam browser pengguna (Client-Side). Gambar asli maupun hasil tidak diunggah ke server database cloud, sehingga menghemat bandwidth server dan menjaga keamanan kerahasiaan dokumen Anda.
                     </span>
                   </div>
                 </div>
                 <button
                   onClick={onResetStats}
-                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-500 hover:text-indigo-600 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors shadow-2xs shrink-0"
+                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-500 hover:text-primary-600 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors shadow-2xs shrink-0"
                   id="reset-stats-btn"
                   title="Reset statistik sesi sementara"
                 >
@@ -210,7 +210,7 @@ export default function AdminDashboard({
                 <div className="space-y-1.5">
                   <div className="flex justify-between">
                     <label className="text-xs font-semibold text-slate-700">Target Maksimal Output Size (KB)</label>
-                    <span className="text-xs font-bold text-indigo-600 font-mono">{settings.maxOutputSizeKb} KB</span>
+                    <span className="text-xs font-bold text-primary-600 font-mono">{settings.maxOutputSizeKb} KB</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <input
@@ -220,7 +220,7 @@ export default function AdminDashboard({
                       step="10"
                       value={settings.maxOutputSizeKb}
                       onChange={(e) => handleMaxOutputChange(Number(e.target.value))}
-                      className="w-full accent-indigo-600"
+                      className="w-full accent-primary-600"
                     />
                     <input
                       type="number"
@@ -228,7 +228,7 @@ export default function AdminDashboard({
                       max="5000"
                       value={settings.maxOutputSizeKb}
                       onChange={(e) => handleMaxOutputChange(Number(e.target.value))}
-                      className="w-20 px-2 py-1 text-xs text-center font-mono font-semibold text-slate-700 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                      className="w-20 px-2 py-1 text-xs text-center font-mono font-semibold text-slate-700 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-500"
                     />
                   </div>
                   <p className="text-[10px] text-slate-400">
@@ -240,7 +240,7 @@ export default function AdminDashboard({
                 <div className="space-y-1.5 pt-2">
                   <div className="flex justify-between">
                     <label className="text-xs font-semibold text-slate-700">Batas Kualitas Minimum (%)</label>
-                    <span className="text-xs font-bold text-indigo-600 font-mono">{settings.minQuality}%</span>
+                    <span className="text-xs font-bold text-primary-600 font-mono">{settings.minQuality}%</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <input
@@ -250,7 +250,7 @@ export default function AdminDashboard({
                       step="5"
                       value={settings.minQuality}
                       onChange={(e) => handleMinQualityChange(Number(e.target.value))}
-                      className="w-full accent-indigo-600"
+                      className="w-full accent-primary-600"
                     />
                     <input
                       type="number"
@@ -258,7 +258,7 @@ export default function AdminDashboard({
                       max="90"
                       value={settings.minQuality}
                       onChange={(e) => handleMinQualityChange(Number(e.target.value))}
-                      className="w-20 px-2 py-1 text-xs text-center font-mono font-semibold text-slate-700 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                      className="w-20 px-2 py-1 text-xs text-center font-mono font-semibold text-slate-700 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-500"
                     />
                   </div>
                   <p className="text-[10px] text-slate-400">
@@ -275,7 +275,7 @@ export default function AdminDashboard({
                 <div className="space-y-1.5">
                   <div className="flex justify-between">
                     <label className="text-xs font-semibold text-slate-700">Maksimum Ukuran File Upload (MB)</label>
-                    <span className="text-xs font-bold text-indigo-600 font-mono">{settings.maxUploadSizeMb} MB</span>
+                    <span className="text-xs font-bold text-primary-600 font-mono">{settings.maxUploadSizeMb} MB</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <input
@@ -285,7 +285,7 @@ export default function AdminDashboard({
                       step="5"
                       value={settings.maxUploadSizeMb}
                       onChange={(e) => handleMaxUploadChange(Number(e.target.value))}
-                      className="w-full accent-indigo-600"
+                      className="w-full accent-primary-600"
                     />
                     <input
                       type="number"
@@ -293,7 +293,7 @@ export default function AdminDashboard({
                       max="500"
                       value={settings.maxUploadSizeMb}
                       onChange={(e) => handleMaxUploadChange(Number(e.target.value))}
-                      className="w-20 px-2 py-1 text-xs text-center font-mono font-semibold text-slate-700 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                      className="w-20 px-2 py-1 text-xs text-center font-mono font-semibold text-slate-700 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-500"
                     />
                   </div>
                   <p className="text-[10px] text-slate-400">
@@ -312,7 +312,7 @@ export default function AdminDashboard({
                   <button
                     onClick={handleToggleResize}
                     className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                      settings.autoResizeEnabled ? 'bg-indigo-600' : 'bg-slate-300'
+                      settings.autoResizeEnabled ? 'bg-primary-600' : 'bg-slate-300'
                     }`}
                     id="toggle-resize-switch"
                   >
