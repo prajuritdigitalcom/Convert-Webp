@@ -288,31 +288,11 @@ export default function App() {
       </main>
 
       {/* Footer Area */}
-      <footer className="bg-white border-t border-slate-100 py-8 px-4 mt-16 text-center" id="main-app-footer">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div>
-            <p className="font-semibold text-slate-700 flex items-center justify-center md:justify-start gap-1">
-              <ShieldCheck className="w-4 h-4 text-emerald-600" />
-              WebP Smart Compressor &bull; 100% Privacy Secure
-            </p>
-            <p className="mt-1">
-              &copy; {new Date().getFullYear()} WebP Smart Compressor. Hak Cipta Dilindungi Undang-Undang.
-            </p>
-          </div>
-          
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setShowPrivacyModal(true)}
-              className="hover:text-primary-600 underline cursor-pointer font-medium"
-              id="privacy-policy-trigger"
-            >
-              Kebijakan Privasi &amp; Data Keamanan
-            </button>
-            <span>&bull;</span>
-            <span className="font-mono text-[11px] bg-slate-100 px-2.5 py-1 rounded text-slate-500 font-semibold">
-              Pemrosesan Offline Lokal (In-Browser)
-            </span>
-          </div>
+      <footer className="bg-white border-t border-slate-100 py-6 px-4 mt-16 text-center" id="main-app-footer">
+        <div className="max-w-5xl mx-auto text-xs text-slate-400">
+          <p>
+            &copy; {new Date().getFullYear()} Karya Prajurit Digital. Hak Cipta Dilindungi.
+          </p>
         </div>
       </footer>
 
